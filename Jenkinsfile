@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        gradle 'gradle-9.2.1'   // name you configured in Jenkins
+    }
+
     stages {
 
         // stage('Checkout') {
