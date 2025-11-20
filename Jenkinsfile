@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        gradle 'Gradle9'   // matches the name you configured
+    }
     stages {
         // stage('Checkout') {
         //     steps {
@@ -8,7 +11,7 @@ pipeline {
         // }
         stage('Gradle Build') {
             steps {
-                sh 'gradle clean build'
+                sh './gradlew clean build'
             }
         }
         // stage('Test') {
