@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        gradle 'Gradle9'   // matches the name you configured
+        jdk 'jdk-21'   // matches the name you configured
     }
     stages {
         // stage('Checkout') {
@@ -9,6 +9,12 @@ pipeline {
         //         checkout scm
         //     }
         // }
+        stage('Debug Java') {
+            steps {
+                sh 'java -version'
+                sh 'echo $JAVA_HOME'
+            }
+        }
         stage('Gradle Build') {
             steps {
                 sh './gradlew clean build'
